@@ -13,6 +13,7 @@ In this project, the environmental monitoring nodes are implemented with a batte
 - 
 
 # Pictures
+![Sensor Node Schematic](Hardware/EndpointSchematic.pdf)
 
 # Conclusion
 This project consists an environmental monitoring system which transmits from sensor nodes to a central gateway that provides environmental data to a cloud service. The implementation of the gateway and cloud service are not detailed in this repository.
