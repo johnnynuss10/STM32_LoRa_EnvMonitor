@@ -1,0 +1,35 @@
+# Ignore build outputs
+/Debug/
+/Release/
+
+# Ignore CubeIDE metadata caches
+#/.settings/
+/*.launch
+#/.cproject
+#/.project
+
+# Ignore Eclipse indexer/workspace files
+/.metadata/
+/.ipch/
+*.log
+
+# Ignore backup and temp files
+*~
+*.bak
+*.tmp
+
+# Ignore generated binary files
+*.elf
+*.bin
+*.hex
+*.map
+*.lst
+
+# Ignore hidden OS files
+.DS_Store
+Thumbs.db
+
+# Ignore user-generated clutter
+*.swp
+*.swo
+*.swn
