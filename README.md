@@ -6,13 +6,12 @@ The purpose of this project is to implement a system to monitor remote environme
 # Description
 This repository contains the firmware and hardware implementation of the remote sensor nodes, it does not include the implementation of the gateway, cloud service, or mobile user application. The environmental monitoring nodes are implemented with a battery powered STM32F103C8T6 low power MCU, connecting over I2C to a TI HDC3022 sensor to collect temperature and humidity data. This data is relayed through UART to a LoRa module which transmits environmental data from nodes to a central gateway. 
 
-With an emphasis on battery life of sensor nodes, the firmware runs in the lowest power operating mode, with an interrupt driven wakeup routine to enable the processor, make measurements, and transmit to the gateway. With a frequency of one transmission every 6 minutes, the sensor nodes have an estimated battery life of >1 year via 2 AA batteries. 
+With an emphasis on battery life of sensor nodes, the MCU runs in the lowest power operating mode, with an interrupt driven wakeup routine to enable the processor, make measurements, and transmit to the gateway. With a frequency of one transmission every 6 minutes, the sensor nodes have an estimated battery life of >1 year via 2 AA batteries. 
 
 # Features
 - Low-power interrupt driven firmware.
 - Sensor nodes battery life >1 yr.
 - Optimized BoM for high volume production.
-- 
 
 # Pictures
 ![Sensor Node Schematic](Hardware/EndpointSchematic.png)
