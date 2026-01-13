@@ -15,6 +15,7 @@ With an emphasis on battery life of sensor nodes, the MCU runs in the lowest pow
 
 # Pictures
 ![Sensor Node Schematic](Hardware/EndpointSchematic.png)
+![Remote Sensor Board](Hardware/RSB_V1.png)
 
 # Conclusion
 This project consists an environmental monitoring system which transmits from sensor nodes to a central gateway that provides environmental data to a cloud service. The implementation of the gateway, cloud service, and end user application are not detailed in this repository.
