@@ -16,7 +16,8 @@ int InitEEPROM()
 	uint8_t rxBuf[8];
 	memset(rxBuf, 0, sizeof(rxBuf));
 	int numBytes = 8;
-
+//#define JSN_DEBUG 1
+#ifdef JSN_DEBUG
 	// Test EEPROM
 	WriteEEPROM(testaddr, txBuf, numBytes);
 	ReadEEPROM(testaddr, rxBuf, numBytes);
@@ -28,7 +29,7 @@ int InitEEPROM()
 			printf("InitEEPROM: EEPROM data mismatch, addr: %d, expect: 0x%02x, actual: 0x%02x\r\n", i, txBuf[i], rxBuf[i]);
 		}
 	}
-
+#endif
 	// Read EEPROM content into data struct
 	int status = ReadEEPROM(0, (uint8_t *)&eestruct.magicNum, sizeof(eestruct));
 	if (status != 0)

@@ -17,25 +17,27 @@ bool increasing = true;
 
 int InitRGBLED()
 {
-	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
-	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
-	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);
-	colorModTickCount = HAL_GetTick();
+	// TBD Convert LEDs to gpio
+	//HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+	//HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
+	//HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);
+	//colorModTickCount = HAL_GetTick();
 
 	return 0;
 }
 
 int ledSetColor(int redVal, int grnVal, int bluVal)
 {
+	/*
 	//int redVal2 = (255 - redVal);
 	int redVal2 = 255 - ( redVal * 0.6);
 
 	int grnVal2 = 255 - grnVal;
 	int bluVal2 = 255 - bluVal;
-
-	__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, redVal2);
-	__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, grnVal2);
-	__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, bluVal2);
+	*/
+	//__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, redVal2);
+	//__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, grnVal2);
+	//__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, bluVal2);
 
 
 	return 0;

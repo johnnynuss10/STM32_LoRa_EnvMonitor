@@ -109,7 +109,7 @@ static int RadioBufferInit()
 	rx2_complete = 0;
 
 	// Enable UART receive interrupts
-	return HAL_UART_Receive_IT(&huart2, &rx2_buffer[rx2_index], 1);
+	return HAL_UART_Receive_IT(&huart1, &rx2_buffer[rx2_index], 1);
 
 }
 
@@ -128,7 +128,7 @@ void RadioRxCpltCallback()
 	{
 		rx2_index++;
 		// Continue receiving next byte
-		HAL_UART_Receive_IT(&huart2, &rx2_buffer[rx2_index], 1);
+		HAL_UART_Receive_IT(&huart1, &rx2_buffer[rx2_index], 1);
 	}
 }
 
@@ -174,10 +174,10 @@ int SendRadioMsg(char * buf)
 		buf[i] = toupper(buf[i]);
 
 	// send it to the radio
-	HAL_UART_Transmit(&huart2, (unsigned char *)buf, strlen(buf), HAL_MAX_DELAY);
+	HAL_UART_Transmit(&huart1, (unsigned char *)buf, strlen(buf), HAL_MAX_DELAY);
 
 	// append "/r/n"
-	HAL_UART_Transmit(&huart2, (unsigned char *)lineterm, strlen(lineterm), HAL_MAX_DELAY);
+	HAL_UART_Transmit(&huart1, (unsigned char *)lineterm, strlen(lineterm), HAL_MAX_DELAY);
 
 	return 0;
 

@@ -38,7 +38,7 @@ extern bool autoSend;
 
 extern int sensor_read_period_ms;
 
-extern TIM_HandleTypeDef htim2;
+//extern TIM_HandleTypeDef htim2;
 
 extern int ledResetFlag;
 extern uint32_t ledTimestamp;

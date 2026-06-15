@@ -25,7 +25,7 @@ int ConsoleInit()
 	rx1_complete = 0;
 
 	// Enable UART receive interrupts
-	return HAL_UART_Receive_IT(&huart1, &rx1_buffer[rx1_index], 1);
+	return HAL_UART_Receive_IT(&huart2, &rx1_buffer[rx1_index], 1);
 
 }
 
@@ -45,7 +45,7 @@ void ConsoleRxCpltCallback()
     {
         rx1_index++;
         // Continue receiving next byte
-        HAL_UART_Receive_IT(&huart1, &rx1_buffer[rx1_index], 1);
+        HAL_UART_Receive_IT(&huart2, &rx1_buffer[rx1_index], 1);
     }
 
 }
@@ -137,6 +137,15 @@ static int ProcessConsoleMsg(char * buf)			// NULL terminated string
 		SendRadioMsg(buf);
 
 	}
+	unsigned char tempBuf[10];
+	// is it a Debug command?
+	if (strnicmp(buf, "D1", 2) == 0)
+	{
+		ReadEEPROM(0, tempBuf, 1);
+		printf("read 0x%02x at addr 0\r\n", tempBuf[0]);
+
+	}
+
 
 	//strcpy(lastcmd, buf);	// save for subsequent use
 
@@ -168,7 +177,6 @@ int SendConsoleMsg(char * buf)
 {
 	const char * lineterm = "\r\n";
 
-	// send it to the radio
 	HAL_UART_Transmit(&huart1, (unsigned char *)buf, strlen(buf), HAL_MAX_DELAY);
 
 	// append "/n"
